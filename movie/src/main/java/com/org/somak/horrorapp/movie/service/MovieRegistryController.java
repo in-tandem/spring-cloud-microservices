@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.ws.rs.core.MediaType;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,7 +30,7 @@ public class MovieRegistryController {
 	private MovieRepository repository;
 	
 	
-	@RequestMapping(method=RequestMethod.GET, path="/getAll", produces=MediaType.APPLICATION_JSON)
+	@RequestMapping(method=RequestMethod.GET, path="/getAll", produces="application/json")
 	public List<MovieDTO> getAllMovies() throws MovieException{
 		try {
 			System.out.println(CLASS_NAME+" defaulttag value:"+configuration.getDefaulttag());
