@@ -1,8 +1,13 @@
 package com.org.somak.horrorapp.monster.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class MonsterDTO {
 
 	
+	@NotNull
+	@NotBlank
 	private String monsterName;
 
 	private String monsterDescription;

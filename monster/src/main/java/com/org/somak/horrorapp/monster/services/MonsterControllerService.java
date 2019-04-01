@@ -3,8 +3,9 @@ package com.org.somak.horrorapp.monster.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -97,7 +98,7 @@ public class MonsterControllerService {
 	@ResponseStatus(HttpStatus.OK)
 	public List<MonsterDTO> getAllAliveMonsters() throws MonsterException {
 
-		System.out.println("Default variable alive value:"+configuration.getAlive());
+		System.out.println("Default variable alive value:"+configuration.getAlive()+configuration.getLegendary());
 		try {
 
 			return repository
@@ -139,7 +140,7 @@ public class MonsterControllerService {
 
 	@RequestMapping(path="/create", method= RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public void createMonster(MonsterDTO monster) throws MonsterException{
+	public void createMonster(@Valid MonsterDTO monster) throws MonsterException{
 		
 		try {
 			
